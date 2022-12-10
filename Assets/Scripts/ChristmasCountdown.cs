@@ -7,6 +7,7 @@ public class ChristmasCountdown : MonoBehaviour
 {
     Image img;
 
+    AudioSource audio;
     public Color Color { get; private set; }
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class ChristmasCountdown : MonoBehaviour
         {
             Color = new Color(img.color.r, img.color.g, img.color.b, img.color.a);
             print("On This Day, you received...");
+            audio.Play();
         }
     }
 }
