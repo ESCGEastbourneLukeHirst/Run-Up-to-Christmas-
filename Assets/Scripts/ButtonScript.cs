@@ -16,10 +16,14 @@ public class ButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        col = GetComponent<Image>().color;
-        col.a = 0;  // image alpha = 0 - image off
-        col.a = 31;  // image alpha = 31 - image on
-        GetComponent<Image>().color = col;
+        if (Input.GetMouseButtonDown(0))
+        {
+            col = GetComponent<Image>().color;
+            col.a = 0;  // image alpha = 0 - image off
+            col.a = 31;  // image alpha = 31 - image on
+            GetComponent<Image>().color = col;
+        }
+
 
     }
 
