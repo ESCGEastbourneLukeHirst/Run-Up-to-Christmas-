@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,18 @@ public class ABC : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.T))
         {
-            TheLookOfLove.Play();
-            print("Have The Look Of Love by ABC");
+            // check to see if it's the correct date
+            DateTime currentDate = DateTime.Today;
+            string dateString = currentDate.ToString("MM/dd/yyyy");
+            if (currentDate != DateTime.Today)
+            {
+                print("It's not that day yet!");
+            }
+            else
+            {
+                TheLookOfLove.Play();
+                print("Have The Look Of Love by ABC");
+            }
         }
     }
 }

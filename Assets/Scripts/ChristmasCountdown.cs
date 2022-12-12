@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,13 @@ using UnityEngine.UI;
 
 public class ChristmasCountdown : MonoBehaviour
 {
-    Image img;
-
-    public Color Color { get; private set; }
+    Color col;
 
     // Start is called before the first frame update
     void Start()
     {
-        img = GetComponent<Image>();
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        col = GetComponent<Image>().color;
+        GetComponent<Image>().color = col;
     }
 
     // Update is called once per frame
@@ -21,8 +20,18 @@ public class ChristmasCountdown : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Color = new Color(img.color.r, img.color.g, img.color.b, img.color.a);
+            // checks the date
+            DateTime currentDate = DateTime.Today;
+            if (currentDate != DateTime.Today)
+            {
+                print("You cannot open this door yet");
+            }
+            col.a = 0;  // image alpha = 0 - image off
+            col.a = 31;  // image alpha = 31 - image on   
         }
+
         
+
     }
+
 }
